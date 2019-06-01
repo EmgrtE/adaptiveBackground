@@ -1,0 +1,52 @@
+// compass mixins
+@import "compass/css3";
+
+// "adaptiveBackground" demo styles
+// main variables
+$font-open-sans: 'Open Sans', sans-serif;
+
+$text-shadow: 0 0 15px rgba(0, 0, 0, .6);
+
+$color-white: #ffffff;
+$color-grey: #6f6f6f;
+
+// main styles
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.adaptive-background-block {
+    @include justify-content(center);
+    @include flex-direction(column);
+    @include align-items(center);
+    @include flex-wrap(nowrap);
+    @include display-flex;
+
+    @include background-size(cover);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $color-grey;
+    text-align: center;
+    padding: 40px;
+
+    &-header {
+        text-transform: uppercase;
+        text-shadow: $text-shadow;
+        font-family: $font-open-sans;
+        font-weight: 700;
+        line-height: 40px;
+        font-size: 40px;
+        color: $color-white;
+    }
+
+    &-description {
+        text-shadow: $text-shadow;
+        font-family: $font-open-sans;
+        line-height: 32px;
+        font-size: 26px;
+        color: $color-white;
+    }
+}

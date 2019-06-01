@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.adaptive-background-block {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  display: -webkit-flex;
+  display: flex;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #6f6f6f;
+  text-align: center;
+  padding: 40px;
+}
+.adaptive-background-block-header {
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 40px;
+  font-size: 40px;
+  color: #ffffff;
+}
+.adaptive-background-block-description {
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  font-family: "Open Sans", sans-serif;
+  line-height: 32px;
+  font-size: 26px;
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=style.css.map */
