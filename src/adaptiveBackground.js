@@ -1,5 +1,6 @@
 /*
     adaptiveBackground is a module written in Vanilla JS that adds a background to a block depending on the block size.
+    Version: 0.1
     License: GPLv2
     Source: https://github.com/EmgrtE/adaptiveBackground
     Author: EmgrtE
@@ -20,7 +21,7 @@ function adaptiveBackground() {
 
     // INNER METHODS
     // get list of suitable backgrounds
-    that.getSuitableBackgrounds = function(backgroundsBlock, backgroundsArr) {
+    function getSuitableBackgrounds(backgroundsBlock, backgroundsArr) {
         if (!backgroundsBlock) {
             return false;
         }
@@ -46,10 +47,10 @@ function adaptiveBackground() {
             suitableBackgroundsSizes: suitableBackgroundsSizes,
             suitableBackgroundsSrc: suitableBackgroundsSrc
         };
-    };
+    }
 
     // get smallest background from suitable backgrounds
-    that.getSmallestBackground = function(suitableBackgroundsSizes, suitableBackgroundsSrc) {
+    function getSmallestBackground(suitableBackgroundsSizes, suitableBackgroundsSrc) {
         if (suitableBackgroundsSizes.length < 1) {
             return false;
         }
@@ -72,10 +73,10 @@ function adaptiveBackground() {
         }
 
         return smallestImageSrc;
-    };
+    }
 
     // set suitable background to block
-    that.setSuitableBackground = function(backgroundsBlock, backgroundSrc) {
+    function setSuitableBackground(backgroundsBlock, backgroundSrc) {
         if (!backgroundsBlock) {
             return false;
         }
@@ -95,24 +96,24 @@ function adaptiveBackground() {
         image.addEventListener('load', function() {
             backgroundsBlock.style.backgroundImage = 'url(' + backgroundSrc + ')';
         });
-    };
+    }
 
     // set backgrounds to blocks
-    that.setBackgrounds = function(backgroundsBlock, backgroundsArr) {
+    function setBackgrounds(backgroundsBlock, backgroundsArr) {
         var blocks = document.querySelectorAll(backgroundsBlock);
 
         for (var i = 0; i < blocks.length; i++) {
             // get suitable backgrounds
-            var suitableBackgrounds = that.getSuitableBackgrounds(blocks[i], backgroundsArr);
+            var suitableBackgrounds = getSuitableBackgrounds(blocks[i], backgroundsArr);
 
             // get smallest background
-            var smallestBackground = that.getSmallestBackground(suitableBackgrounds.suitableBackgroundsSizes,
-                                                                suitableBackgrounds.suitableBackgroundsSrc);
+            var smallestBackground = getSmallestBackground(suitableBackgrounds.suitableBackgroundsSizes,
+                                                           suitableBackgrounds.suitableBackgroundsSrc);
 
             // set background to the block
-            that.setSuitableBackground(blocks[i], smallestBackground);
+            setSuitableBackground(blocks[i], smallestBackground);
         }
-    };
+    }
 
 
 
@@ -139,7 +140,7 @@ function adaptiveBackground() {
             return false;
         }
 
-        that.setBackgrounds(data.backgroundsBlock, data.backgroundsArr);
+        setBackgrounds(data.backgroundsBlock, data.backgroundsArr);
     };
 
     // make changes after resize window
@@ -162,7 +163,7 @@ function adaptiveBackground() {
             return false;
         }
 
-        that.setBackgrounds(data.backgroundsBlock, data.backgroundsArr);
+        setBackgrounds(data.backgroundsBlock, data.backgroundsArr);
 
         // not for ie8
         window.addEventListener('resize', that.resize);
