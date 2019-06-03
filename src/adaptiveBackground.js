@@ -43,8 +43,8 @@ function adaptiveBackground() {
         }
 
         return {
-            suitableBackgroundsSizes,
-            suitableBackgroundsSrc
+            suitableBackgroundsSizes: suitableBackgroundsSizes,
+            suitableBackgroundsSrc: suitableBackgroundsSrc
         };
     };
 
@@ -92,9 +92,9 @@ function adaptiveBackground() {
         // set background
         image.src = backgroundSrc;
 
-        image.onload = function(e) {
+        image.addEventListener('load', function() {
             backgroundsBlock.style.backgroundImage = 'url(' + backgroundSrc + ')';
-        };
+        });
     };
 
     // set backgrounds to blocks
@@ -128,8 +128,8 @@ function adaptiveBackground() {
         }
 
         data = {
-            backgroundsBlock,
-            backgroundsArr
+            backgroundsBlock: backgroundsBlock,
+            backgroundsArr: backgroundsArr
         };
     };
 
